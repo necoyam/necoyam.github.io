@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.icary.blog.util.Util;
@@ -19,9 +18,9 @@ public class ArticleGenerator implements Generator {
    * @see org.icary.blog.generator.Generator#generate(java.util.Properties)
    */
   @Override
-  public void generate(Properties configuration) {
-    String inputPath = configuration.getProperty("inputPath");
-    String outputPath = configuration.getProperty("outputPath");
+  public void generate() {
+    String inputPath = GeneratorConfig.get("inputPath");
+    String outputPath = GeneratorConfig.get("outputPath");
     Path postPath = this.checkNCreateDirectory(inputPath);
     Path htmlPath = this.checkNCreateDirectory(outputPath);
 

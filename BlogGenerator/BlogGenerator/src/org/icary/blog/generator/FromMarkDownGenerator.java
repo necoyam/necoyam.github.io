@@ -22,8 +22,8 @@ public class FromMarkDownGenerator extends SimpleFileVisitor<Path> {
 
   private Parser parser = new BlogParser();
 
-  private final String headerFile = "D:\\git\\necoyam.github.io\\template\\head.html";
-  private final String tailFile = "D:\\git\\necoyam.github.io\\template\\tail.html";
+  private final String headerFile = GeneratorConfig.get("headerFile");
+  private final String tailFile = GeneratorConfig.get("tailFile");;
 
   private String headerHtml = "";
   private String tailHtml = "";

@@ -3,8 +3,6 @@ package org.icary.blog.parser;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
 import org.junit.Test;
 
@@ -34,17 +32,6 @@ public class BlogParserTest {
     String testInput = "@HTML\n" + "<h1>HTML</h1>\n" + "@MARKDOWN\n" + "# Markdown";
     String testOutput = "<h1>HTML</h1>\n<h1>Markdown</h1>";
     assertEquals(testOutput, parser.parse(testInput));
-  }
-
-  @Test
-  public void test() {
-    Path path = FileSystems.getDefault().getPath("C:\\temp\\20150804");
-    for (int i = 0; i < path.getNameCount(); i++) {
-      System.out.println(path.getName(i));
-    }
-    System.out.println(path.getFileName().toString());
-    Path path2 = FileSystems.getDefault().getPath("C:\\temp");
-    System.out.println(path2.resolve(path.getFileName()));
   }
 
 }
