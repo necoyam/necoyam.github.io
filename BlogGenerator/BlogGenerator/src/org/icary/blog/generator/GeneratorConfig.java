@@ -6,7 +6,7 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-public class GeneratorConfig {
+public final class GeneratorConfig {
 
   private static final String CONFIG_FILE_PATH = "resource\\configuration.properties";
 
