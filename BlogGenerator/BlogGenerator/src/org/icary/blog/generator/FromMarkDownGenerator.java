@@ -1,8 +1,10 @@
 package org.icary.blog.generator;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -81,7 +83,8 @@ public class FromMarkDownGenerator extends SimpleFileVisitor<Path> {
     File htmlFile = to.getParent().resolve(to.toFile().getName() + ".html").toFile();
     logger.info("processing " + from.getFileName());
     try {
-      FileWriter fw = new FileWriter(htmlFile);
+      BufferedWriter fw =
+          new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), "utf-8"));
       String original = new String(Files.readAllBytes(from), "utf-8");
       logger.debug("============original===========");
       logger.debug(original);
