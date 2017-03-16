@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Icary's Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.0.slim.js" integrity="sha256-L6ppAjL6jgtRmfiuigeEE5AwNI2pH/X9IBbPyanJeZw=" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Blog resource -->
+  <link rel="stylesheet" href="css/blog.css">
+  <script src="script/blog.js"></script>
+
+</head>
+<body>
+  <!-- Facebook -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '190532464351842',
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) {return;}
+	    js = d.createElement(s); js.id = id;
+	    js.src = "//connect.facebook.net/ko_KR/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="https://necoyam.github.io/">Icary's</a>
+	  </div>
+	</div>
+  </nav>
+  <div class="row">
+    <div class="col-lg-2 col-md-1 col-sm-0 col-xs-0"></div>
+    <div id="post" class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+<h1>Travel Srvice (°¡Á¦)</h1>
+<h2>Architecture</h2>
+<p><img src="travel_service_architecture.png" alt="overall architecture diagram" title="Overall Architecture Diagram" /></p>
+<h2>User story</h2>
+<ol>
+  <li>A user can upload picture with map data</li>
+  <li>A user can upload picture with tag</li>
+  <li>A user create tag for tour spot, restaurant, shop or ...</li>
+  <li>A user can search tag with name</li>
+  <li>A user can search tag from map</li>
+  <li>A user can search tags near current location</li>
+  <li>A user can add a tag to tour cart</li>
+  <li>A user can search for recommended route to items in tour cart</li>
+  <li>A tour consist of from &amp; to location with time spent and metadata</li>
+  <li>A user can share tour exprience with location, picture, metadata and emotion</li>
+  <li>As a system, can ask user about additional metadata for uploaded tour</li>
+  <li>A user can ask about data to tour location if it is not supplied</li>
+  <li>As a system, can ask user who uploaded tour information to that place about another user's question</li>
+  <li>A user can add edge to tour cart</li>
+  <li>A user can delete edge/tag from tour cart</li>
+  <li>A user can assign date and/or time to edges/tags in tour cart</li>
+  <li>A user can save tour cart</li>
+  <li>A user can load tour cart</li>
+  <li>A user can export tour cart to calendar</li>
+</ol>    </div>
+    <div class="col-lg-2 col-md-1 col-sm-0 col-xs-0"></div>
+  </div>
+</body>
+</html>

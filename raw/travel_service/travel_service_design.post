@@ -1,0 +1,31 @@
+@MARKDOWN
+Travel Srvice (가제)
+=======
+
+Architecture
+---------
+
+![overall architecture diagram](travel_service_architecture.png "Overall Architecture Diagram")
+
+User story
+---------
+
+1. A user can upload picture with map data
+2. A user can upload picture with tag 
+3. A user create tag for tour spot, restaurant, shop or ...
+4. A user can search tag with name
+5. A user can search tag from map
+6. A user can search tags near current location
+7. A user can add a tag to tour cart
+8. A user can search for recommended route to items in tour cart
+9. A tour consist of from & to location with time spent and metadata
+10. A user can share tour exprience with location, picture, metadata and emotion
+11. As a system, can ask user about additional metadata for uploaded tour
+12. A user can ask about data to tour location if it is not supplied
+13. As a system, can ask user who uploaded tour information to that place about another user's question
+14. A user can add edge to tour cart
+15. A user can delete edge/tag from tour cart
+16. A user can assign date and/or time to edges/tags in tour cart
+17. A user can save tour cart
+18. A user can load tour cart
+19. A user can export tour cart to calendar
