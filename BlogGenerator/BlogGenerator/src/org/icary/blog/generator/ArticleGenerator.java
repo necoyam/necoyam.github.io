@@ -1,47 +1,47 @@
 package org.icary.blog.generator;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.apache.log4j.Logger;
 import org.icary.blog.util.Util;
+import org.icary.util.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
+@Singleton
 public class ArticleGenerator implements Generator {
 
-  private final Logger logger = Logger.getLogger(ArticleGenerator.class);
+	private Logger logger = LoggerFactory.getLogger(ArticleGenerator.class);
 
-  /*
-   * (non-Javadoc) TODO: change it to copy all files with same folder structure then generate file
-   * 
-   * @see org.icary.blog.generator.Generator#generate(java.util.Properties)
-   */
-  @Override
-  public void generate() {
-    String inputPath = GeneratorConfig.get("inputPath");
-    String outputPath = GeneratorConfig.get("outputPath");
-    Path postPath = this.checkNCreateDirectory(inputPath);
-    Path htmlPath = this.checkNCreateDirectory(outputPath);
+	private final Config config;
+	
+	private final FromMarkDownGenerator fromMarkDownGenerator;
 
-    logger.info("Start processing blog posts from " + inputPath);
-    try {
-      Files.walkFileTree(postPath, new FromMarkDownGenerator(postPath, htmlPath));
-    } catch (IOException e) {
-      logger.error(e);
-      new RuntimeException("Failed to process blog posts from " + inputPath);
-    }
-  }
+	@Inject
+	public ArticleGenerator(Config config, FromMarkDownGenerator fromMarkDownGenerator) {
+		this.config = config;
+		this.fromMarkDownGenerator = fromMarkDownGenerator;
+	}
+	/*
+	 * (non-Javadoc) TODO: change it to copy all files with same folder structure then generate file
+	 * 
+	 * @see org.icary.blog.generator.Generator#generate(java.util.Properties)
+	 */
+	@Override
+	public void generate() {
+		String inputPath = config.get("inputPath");
+		Path postPath = Util.checkNCreateDirectory(inputPath);
 
-  private Path checkNCreateDirectory(String inputPath) {
-    Path postPath = FileSystems.getDefault().getPath(inputPath);
-    try {
-      Util.checkNCreateDirectory(postPath);
-    } catch (IOException e) {
-      logger.error(e);
-      throw new RuntimeException("Failed to find/create inputPath: " + inputPath);
-    }
-    return postPath;
-  }
+		logger.info("Start processing blog posts from " + inputPath);
+		try {
+			Files.walkFileTree(postPath, fromMarkDownGenerator);
+		} catch (IOException e) {
+			new RuntimeException("Failed to process blog posts postPath, htmlPathfrom " + inputPath, e);
+		}
+	}
 
 }

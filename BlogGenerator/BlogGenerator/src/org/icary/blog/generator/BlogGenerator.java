@@ -1,16 +1,28 @@
 package org.icary.blog.generator;
 
-import org.apache.log4j.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
+@Singleton
 public class BlogGenerator implements Generator {
 
-  private final Logger logger = Logger.getLogger(BlogGenerator.class);
+	private Logger logger = LoggerFactory.getLogger(BlogGenerator.class);
 
-  public void generate() {
-    new ArticleGenerator().generate();
-  }
+	private final Generator articleGenerator;
 
-  public static void main(String[] args) {
-    new BlogGenerator().generate();
-  }
+	@Inject
+	public BlogGenerator(Generator articleGenerator) {
+		this.articleGenerator = articleGenerator;
+	}
+	/**
+	 * Main method which hold recipe to generator blog
+	 */
+	public void generate() {
+		articleGenerator.generate();
+	}
+
 }
